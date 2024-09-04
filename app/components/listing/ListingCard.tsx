@@ -1,7 +1,7 @@
 'use client';
 
 import useCountries from "@/app/hooks/useCountries";
-import { SafeListing, SafeListings, SafeReservation, SafeUser } from "@/app/types";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import { format } from "date-fns";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -10,7 +10,7 @@ import Button from "../Button";
 import HeartButton from "./HeartButton";
 
 interface ListingCardProps {
-    data: SafeListings;
+    data: SafeListing;
     reservation?: SafeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;

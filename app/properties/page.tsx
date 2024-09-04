@@ -26,11 +26,11 @@ const PropertiesPage = async () => {
         );
     }
 
-    return (
-        <PropertiesClient
-            listings={listings} // Ensure this matches the expected type
-            currentUser={currentUser}
-        />
+    return (<></>
+        // <PropertiesClient
+        //     listings={listings} // Ensure this matches the expected type
+        //     currentUser={currentUser}
+        // />
     );
 };
 
