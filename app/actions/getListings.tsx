@@ -1,4 +1,6 @@
 import prisma from "@/app/libs/prismadb";
+import { SafeListing } from "../types";
+
 export interface IListingsParams {
     userId?: string;
     guestCount?: number;
@@ -9,9 +11,10 @@ export interface IListingsParams {
     locationValue?: string;
     category?: string;
 }
+
 export default async function getListings(
     params: IListingsParams
-) {
+): Promise<SafeListing[]> {
     try {
         const { userId, guestCount, roomCount, bathroomCount, startDate, endDate, locationValue, category } = params;
 
@@ -37,7 +40,6 @@ export default async function getListings(
                 gte: +bathroomCount
             };
         }
-
         if (locationValue) {
             query.locationValue = locationValue;
         }
@@ -60,17 +62,19 @@ export default async function getListings(
             }
         }
 
-        const listing = prisma.listing.findMany({
+        const listings = await prisma.listing.findMany({
             where: query,
             orderBy: {
                 createAt: 'desc'
             }
         });
-        return listing
+
+        // Convert createdAt to string
+        return listings.map((listing) => ({
+            ...listing,
+            createAt: listing.createAt.toISOString(),
+        }));
     } catch (error: any) {
-        throw new Error(error)
-
+        throw new Error(error);
     }
-
-};
-
+}
