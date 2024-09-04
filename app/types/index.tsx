@@ -5,7 +5,7 @@ export type SafeListing = Omit<
     Listing,
     'createAt'
 > & {
-    createAt: Date;
+    createAt: string;
 }
 
 export type SafeUser = Omit<
