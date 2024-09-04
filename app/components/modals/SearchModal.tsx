@@ -11,6 +11,7 @@ import { formatISO } from "date-fns";
 import Heading from "../Heading";
 import Calender from "../listing/Calender";
 import Counter from "../input/Counter";
+import { Range } from "react-date-range";
 
 enum STEPS {
     LOCATION = 0,
@@ -28,7 +29,7 @@ const SearchModal = () => {
     const [guestCount, setGuestCount] = useState(1);
     const [roomCount, setRoomCount] = useState(1);
     const [bathroomCount, setBathroomCount] = useState(1);
-    const [dateRange, setDateRange] = useState({
+    const [dateRange, setDateRange] = useState<Range>({
         startDate: new Date(),
         endDate: new Date(),
         key: 'selected'
