@@ -6,7 +6,7 @@ import getReservations from "@/app/actions/getReservations";
 interface IParams {
     listingId: string
 }
-const page = async ({ params }: { params: IParams }) => {
+const ListingPage = async ({ params }: { params: IParams }) => {
     const listing = await getListingById(params);
     const currentUser = await getCurrentUser();
     const reservations = await getReservations(params);
@@ -22,4 +22,4 @@ const page = async ({ params }: { params: IParams }) => {
     );
 };
 
-export default page;
+export default ListingPage;
