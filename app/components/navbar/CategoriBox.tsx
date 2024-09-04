@@ -1,15 +1,15 @@
 'use client';
-
+import { IconType } from "react-icons";
 import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
 import { useCallback } from "react";
 
 type categoriBoxProps = {
-    icon: iconType,
+    icon: IconType,
     label: string,
     selected: boolean
 }
-const CategoriBox = ({ icon:Icon, label, selected }: categoriBoxProps) => {
+const CategoriBox = ({ icon: Icon, label, selected }: categoriBoxProps) => {
     const router = useRouter();
     const params = useSearchParams();
     const handleClick = useCallback(() => {
