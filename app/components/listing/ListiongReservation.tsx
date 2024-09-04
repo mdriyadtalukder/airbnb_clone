@@ -14,7 +14,7 @@ interface ListiongReservationProps {
     disabledDates: Date[];
 
 }
-const ListiongReservation = ({ price, dateRange, totalPrice, onChangeDate, onSubmit, disabled, disabledDates }: ListiongReservationProps) => {
+const ListiongReservation : React.FC<ListiongReservationProps>  = ({ price, dateRange, totalPrice, onChangeDate, onSubmit, disabled, disabledDates }) => {
     return (
         <div className="bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden">
             <div className="flex flex-row items-center gap-1 p-4">

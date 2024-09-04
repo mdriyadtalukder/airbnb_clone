@@ -24,9 +24,9 @@ interface ListngClientProps {
     };
     currentUser?: SafeUser | null;
 }
-const ListingClient = ({
+const ListingClient: React.FC<ListngClientProps> = ({
     reservations = [], listing, currentUser
-}: ListngClientProps) => {
+}) => {
     const loginModal = useLoginModal();
     const route = useRouter();
     const disabledDate = useMemo(() => {

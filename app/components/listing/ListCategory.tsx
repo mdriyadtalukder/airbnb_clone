@@ -3,7 +3,7 @@ interface ListCategoryProps {
     label: string;
     description: string;
 }
-const ListCategory = ({ label, description }: ListCategoryProps) => {
+const ListCategory : React.FC<ListCategoryProps> =  ({ label, description }) => {
     return (
         <div className="flex flex-col gap-6">
             <div className="flex flex-row items-center gap-4">

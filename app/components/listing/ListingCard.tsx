@@ -19,7 +19,7 @@ interface ListingCardProps {
     currentUser: SafeUser | null;
 }
 
-const ListingCard = ({ data, reservation, onAction, disabled, actionLabel, actionId = "", currentUser }: ListingCardProps) => {
+const ListingCard: React.FC<ListingCardProps> = ({ data, reservation, onAction, disabled, actionLabel, actionId = "", currentUser }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
     const location = getByValue(data.locationValue);

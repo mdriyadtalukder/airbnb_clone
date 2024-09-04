@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import Button from "../Button";
 
-type ModalProps = {
+interface ModalProps {
     isOpen?: boolean;
     onClose?: () => void;
     onSubmit?: () => void;
@@ -16,7 +16,7 @@ type ModalProps = {
     secondaryAction?: () => void;
 };
 
-const Modal = ({
+const Modal : React.FC<ModalProps> = ({
     isOpen,
     onClose,
     onSubmit,
@@ -27,7 +27,7 @@ const Modal = ({
     secondaryActionLabel,
     disabled,
     secondaryAction,
-}: ModalProps) => {
+}) => {
     const [showModal, setShowModal] = useState(isOpen);
 
     useEffect(() => {

@@ -14,7 +14,7 @@ interface MapProps {
 
     center: number[];
 }
-const Map = ({ center }: MapProps) => {
+const Map: React.FC<MapProps> = ({ center }) => {
 
 
     return (

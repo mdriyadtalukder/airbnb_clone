@@ -4,12 +4,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
 import { useCallback } from "react";
 
-type categoriBoxProps = {
+interface categoriBoxProps {
     icon: IconType,
     label: string,
     selected: boolean
 }
-const CategoriBox = ({ icon: Icon, label, selected }: categoriBoxProps) => {
+const CategoriBox : React.FC<categoriBoxProps>= ({ icon: Icon, label, selected }) => {
     const router = useRouter();
     const params = useSearchParams();
     const handleClick = useCallback(() => {

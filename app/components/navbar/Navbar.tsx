@@ -10,10 +10,10 @@ import { useSearchParams } from "next/navigation";
 import useCountries from "@/app/hooks/useCountries";
 import { useMemo } from "react";
 import { differenceInDays } from "date-fns";
-type navbarProps = {
+interface NavbarProps {
     currentUser?: SafeUser | null
 }
-const Navbar = ({ currentUser }: navbarProps) => {
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
     //console.log({ currentUser })
     const searchModal = useSearchModal();
     const params = useSearchParams();

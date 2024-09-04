@@ -11,7 +11,7 @@ interface TrapsClientProps {
     reservations: SafeReservation[];
     currentUser?: SafeUser | null;
 }
-const TripsClient = ({ reservations, currentUser }: TrapsClientProps) => {
+const TripsClient : React.FC<TrapsClientProps>= ({ reservations, currentUser }) => {
     const route = useRouter();
     const [deleteingId, setDeletingId] = useState('');
 

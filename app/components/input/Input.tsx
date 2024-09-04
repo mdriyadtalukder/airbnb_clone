@@ -3,7 +3,7 @@
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { BiDollar } from "react-icons/bi";
 
-type InputProps = {
+interface InputProps {
     id: string;
     label?: string;
     type?: string;  // type should be string for input types like "text", "password", etc.
@@ -14,7 +14,7 @@ type InputProps = {
     errors?: FieldErrors;
 }
 
-const Input = ({
+const Input: React.FC<InputProps> = ({
     id,
     label,
     type = "text",  // Default type set to "text"
@@ -23,7 +23,7 @@ const Input = ({
     register,
     required,
     errors
-}: InputProps) => {
+}) => {
     return (
         <div className="w-full relative">
             {formatPrice && (

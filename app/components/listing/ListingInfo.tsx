@@ -17,7 +17,7 @@ interface ListingInfoProps {
     category: string;
     locationValue: string;
 }
-const ListingInfo = ({ user, description, guestCount, roomCount, bathroomCount, category, locationValue }: ListingInfoProps) => {
+const ListingInfo: React.FC<ListingInfoProps> = ({ user, description, guestCount, roomCount, bathroomCount, category, locationValue }) => {
     const { getByValue } = useCountries();
     const cordinates = getByValue(locationValue)?.lating;
     return (

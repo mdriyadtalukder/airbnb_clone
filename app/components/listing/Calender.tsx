@@ -7,7 +7,7 @@ interface CalenderProps {
     onChange: (value: RangeKeyDict) => void;
     disabledDates?: Date[]
 }
-const Calender = ({ value, onChange, disabledDates }: CalenderProps) => {
+const Calender : React.FC<CalenderProps> = ({ value, onChange, disabledDates }) => {
     return (
         <DateRange
             ranges={[value]}

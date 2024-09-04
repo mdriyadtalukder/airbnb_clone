@@ -8,7 +8,7 @@ interface FavotiteClientProps {
     listings: SafeListing[],
     currentUser: SafeUser | null;
 }
-const FavotiteClient = ({ listings, currentUser }: FavotiteClientProps) => {
+const FavotiteClient: React.FC<FavotiteClientProps> = ({ listings, currentUser }) => {
     return (
         <div className="max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
             <Heading title="Favorites" subtitle="List of places you have favorited!">
