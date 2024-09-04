@@ -1,14 +1,14 @@
 'use client';
 import { useRouter } from "next/navigation";
 import Heading from "../components/Heading";
-import { SafeListing, SafeReservation, SafeUser } from "../types";
+import { SafeListing, SafeListings, SafeReservation, SafeUser } from "../types";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ListingCard from "../components/listing/ListingCard";
 
 interface PropertiesClientProps {
-    listings: SafeListing[];
+    listings: SafeListings[];
     currentUser?: SafeUser | null;
 }
 const PropertiesClient: React.FC<PropertiesClientProps> = ({ listings, currentUser }) => {

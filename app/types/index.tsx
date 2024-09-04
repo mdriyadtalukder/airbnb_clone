@@ -7,6 +7,20 @@ export type SafeListing = Omit<
 > & {
     createAt: string;
 }
+export type SafeListings= {
+    id: string;
+    title: string;
+    description: string;
+    imageSrc: string;
+    createAt: Date; // Update this if 'Date' is expected
+    category: string;
+    roomCount: number;
+    bathroomCount: number;
+    guestCount: number;
+    locationValue: string;
+    userId: string;
+    price: number;
+}
 
 export type SafeUser = Omit<
     User,
