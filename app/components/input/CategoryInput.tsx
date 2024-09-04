@@ -1,4 +1,5 @@
 import { LiaBell } from "react-icons/lia";
+import { IconType } from "react-icons";
 
 type categoryinputProps = {
     icon: IconType;

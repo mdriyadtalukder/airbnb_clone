@@ -1,4 +1,5 @@
 "use client";
+import { IconType } from "react-icons";
 type buttonProps = {
     label?: string;
     onClick?: (e:React.MouseEvent<HTMLButtonElement>)=>void;

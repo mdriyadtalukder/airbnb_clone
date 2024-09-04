@@ -96,7 +96,7 @@ const ListingClient = ({
                         imageSrc={listing.imageSrc}
                         locationValue={listing.locationValue}
                         id={listing.id}
-                        currentUser={currentUser}
+                        currentUser={currentUser ? currentUser : null}
                     >
 
                     </ListingHeader>

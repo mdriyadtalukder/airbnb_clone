@@ -1,4 +1,5 @@
 'use client';
+
 import useSearchModal from "@/app/hooks/useSearchModal";
 import Modals from "./Modals";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -10,11 +11,13 @@ import { formatISO } from "date-fns";
 import Heading from "../Heading";
 import Calender from "../listing/Calender";
 import Counter from "../input/Counter";
+
 enum STEPS {
     LOCATION = 0,
     DATE = 1,
     INFO = 2
 }
+
 const SearchModal = () => {
     const router = useRouter();
     const params = useSearchParams();
@@ -30,16 +33,19 @@ const SearchModal = () => {
         endDate: new Date(),
         key: 'selected'
     });
+
     const Map = useMemo(() => dynamic(() => import('../Map'), {
         ssr: false
     }), []);
 
     const onBack = useCallback(() => {
-        setStep((value) => value - 1)
+        setStep((value) => value - 1);
     }, []);
+
     const onNext = useCallback(() => {
-        setStep((value) => value + 1)
+        setStep((value) => value + 1);
     }, []);
+
     const onSubmit = useCallback(async () => {
         if (step !== STEPS.INFO) {
             return onNext();
@@ -77,67 +83,60 @@ const SearchModal = () => {
         if (step === STEPS.INFO) {
             return 'Search';
         }
-        return 'Next'
+        return 'Next';
     }, [step]);
 
     const secondaryActionLabel = useMemo(() => {
         if (step === STEPS.LOCATION) {
             return undefined;
         }
-        return 'Back'
-    }, [step])
+        return 'Back';
+    }, [step]);
 
     let bodyContent = (
         <div className="flex flex-col gap-8">
-            <Heading title="Where do you wanna go?" subtitle="Find the perfect location!">
-            </Heading>
-            <CountrySelect value={location} onChange={(value) => setLocation(value as CountrySelectValue)}>
-
-            </CountrySelect>
+            <Heading title="Where do you wanna go?" subtitle="Find the perfect location!" />
+            <CountrySelect value={location} onChange={(value) => setLocation(value as CountrySelectValue)} />
             <hr />
-            <Map center={location?.lating}></Map>
-        </div>
-    )
+            {
+                location && <Map center={location?.lating} />
+
+            }        </div>
+    );
+
     if (step === STEPS.DATE) {
         bodyContent = (
             <div className="flex flex-col gap-8">
-                <Heading title="Where do you plan to go?" subtitle="make sure everyone is free!">
-                </Heading>
-                <Calender value={dateRange} onChange={(value) => setDateRange(value.selected)}>
-
-                </Calender>
+                <Heading title="When do you plan to go?" subtitle="Make sure everyone is free!" />
+                <Calender value={dateRange} onChange={(value) => setDateRange(value?.selected)} />
             </div>
-        )
+        );
     }
 
     if (step === STEPS.INFO) {
         bodyContent = (
             <div className="flex flex-col gap-8">
-                <Heading title="More Information" subtitle="Find your perfact place!">
-                </Heading>
+                <Heading title="More Information" subtitle="Find your perfect place!" />
                 <Counter
                     title="Guests"
-                    subtitle="How many guest are coming?"
+                    subtitle="How many guests are coming?"
                     value={guestCount}
-                    onChange={(value) => setGuestCount(value)}>
-
-                </Counter>
+                    onChange={(value) => setGuestCount(value)}
+                />
                 <Counter
                     title="Rooms"
-                    subtitle="How many rooms do u need?"
+                    subtitle="How many rooms do you need?"
                     value={roomCount}
-                    onChange={(value) => setRoomCount(value)}>
-
-                </Counter>
+                    onChange={(value) => setRoomCount(value)}
+                />
                 <Counter
-                    title="Bathroom"
-                    subtitle="How many bathroom do u need?"
+                    title="Bathrooms"
+                    subtitle="How many bathrooms do you need?"
                     value={bathroomCount}
-                    onChange={(value) => setBathroomCount(value)}>
-
-                </Counter>
+                    onChange={(value) => setBathroomCount(value)}
+                />
             </div>
-        )
+        );
     }
 
     return (
@@ -147,12 +146,10 @@ const SearchModal = () => {
             onSubmit={onSubmit}
             title="Filter"
             actionLabel={actionLabel}
-            SecondaryactionLabel={secondaryActionLabel}
+            secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
             body={bodyContent}
-        >
-
-        </Modals>
+        />
     );
 };
 

@@ -11,7 +11,7 @@ interface PropertiesClientProps {
     listings: SafeListing[];
     currentUser?: SafeUser | null;
 }
-const PropertiesClient = ({ listings, currentUser }: PropertiesClientProps) => {
+const PropertiesClient: React.FC<PropertiesClientProps> = ({ listings, currentUser }) => {
     const route = useRouter();
     const [deleteingId, setDeletingId] = useState('');
 
@@ -41,7 +41,7 @@ const PropertiesClient = ({ listings, currentUser }: PropertiesClientProps) => {
                 {
 
                     listings.map((listing) => (
-                        <ListingCard key={listing.id} data={listing} actionId={listing.id} onAction={oncancel} disabled={deleteingId === listing.id} actionLabel="Delete property" currentUser={currentUser}>
+                        <ListingCard key={listing.id} data={listing} actionId={listing.id} onAction={oncancel} disabled={deleteingId === listing.id} actionLabel="Delete property" currentUser={currentUser || null}>
 
                         </ListingCard>
 

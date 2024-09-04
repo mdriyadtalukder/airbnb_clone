@@ -13,7 +13,13 @@ interface ListingHeaderProps {
     id: string;
     currentUser: SafeUser | null;
 }
-const ListingHeader = ({ title, locationValue, imageSrc, id, currentUser }: ListingHeaderProps) => {
+const ListingHeader: React.FC<ListingHeaderProps> = ({
+    title,
+    imageSrc,
+    locationValue,
+    id,
+    currentUser,
+}) => {
     const { getByValue } = useCountries();
     const location = getByValue(locationValue)
     return (

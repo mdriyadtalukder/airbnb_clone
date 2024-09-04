@@ -41,7 +41,7 @@ const TripsClient = ({ reservations, currentUser }: TrapsClientProps) => {
                 {
 
                     reservations.map((reservation) => (
-                        <ListingCard key={reservation.id} data={reservation.listing} reservation={reservation} actionId={reservation.id} onAction={oncancel} disabled={deleteingId === reservation.id} actionLabel="Cancel reservation" currentUser={currentUser}>
+                        <ListingCard key={reservation.id} data={reservation.listing} reservation={reservation} actionId={reservation.id} onAction={oncancel} disabled={deleteingId === reservation.id} actionLabel="Cancel reservation" currentUser={currentUser || null}>
 
                         </ListingCard>
 

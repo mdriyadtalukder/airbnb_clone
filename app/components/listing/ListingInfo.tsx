@@ -47,7 +47,7 @@ const ListingInfo = ({ user, description, guestCount, roomCount, bathroomCount, 
                 category && (
                     <div className="flex flex-row text-xl font-semibold items-center gap-2">
                         <div>{category}</div>
-                        
+
                     </div>
 
                 )
@@ -57,7 +57,9 @@ const ListingInfo = ({ user, description, guestCount, roomCount, bathroomCount, 
                 {description}
             </div>
             <hr />
-            <Map center={cordinates}></Map>
+            {
+                cordinates && <Map center={cordinates}></Map>
+            }
         </div>
     );
 };
