@@ -26,7 +26,7 @@ const ListingHeader: React.FC<ListingHeaderProps> = ({
         <>
             <Heading
                 title={title}
-                subtitle={`${location?.region},${location?.label}`}>
+                subtitle={`${location?.region ? location?.region : ' '}`}>
 
             </Heading>
             <div className="w-full h-[60vh] overflow-hidden rounded-xl relative">
